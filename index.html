@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b2545">
+<title>R&amp;D HUB</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2313406e'/%3E%3Ctext x='32' y='41' font-family='Arial' font-size='22' font-weight='700' fill='white' text-anchor='middle'%3ER%26D%3C/text%3E%3C/svg%3E">
+<style>
+  html, body { margin: 0; height: 100%; background: #f4f6fa; font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; overflow: hidden; }
+  iframe { border: 0; width: 100vw; height: 100vh; height: 100dvh; display: block; }
+  .info { padding: 32px 20px; color: #4a5568; text-align: center; line-height: 1.6; }
+  .load { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: #13406e; background: #f4f6fa; transition: opacity .3s; }
+  .logo { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, #0b2545, #1f6aa5); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="load" id="load"><div class="logo">R&amp;D</div><div>Membuka R&amp;D HUB…</div></div>
+<iframe id="app" title="R&amp;D HUB" allow="clipboard-write; clipboard-read"></iframe>
+<script>
+  /* ====== GANTI dengan URL Web app Apps Script (yang berakhiran /exec) ====== */
+  var WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyPR5_5FnIZWvmEFTzHFmXyDOimoAKFHUtWSVE1Qifwdb_jT98ZqYcRTO47FwxOMJDs/exec';
+  /* ========================================================================== */
+  var f = document.getElementById('app'), ld = document.getElementById('load');
+  if (WEBAPP_URL.indexOf('GANTI_') >= 0) {
+    document.body.innerHTML = '<div class="info"><b>URL web app belum diisi.</b><br>Buka file index.html, ganti isi <code>WEBAPP_URL</code> dengan link /exec dari Apps Script.</div>';
+  } else {
+    f.onload = function () { ld.style.opacity = 0; setTimeout(function () { ld.style.display = 'none'; }, 300); };
+    f.src = WEBAPP_URL + (window.location.search || '');   // ?nama=...&hal=lapor ikut diteruskan
+  }
+</script>
+</body>
+</html>
